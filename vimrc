@@ -23,3 +23,20 @@ set cindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+set runtimepath+=~/.vim/bundle/plugin/settings
+
+"set for cscope quickfix
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+"set for OmniCppComplete
+set nocp
+set runtimepath+=~/.vim/bundle/omnicppcomplete
+
+" set minibufexplorer
+set runtimepath+=~/.vim/bundle/minibufexpl.vim
+let g:miniBufExplMapWindowNavVim=1
+let g:miniBufExplMapWindowNavArrows=1
+let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplModSelTarget=1
+let g:miniBufExplMoreThanOne=0
