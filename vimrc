@@ -17,3 +17,9 @@ noremap <CR> :nohlsearch<CR>
 
 " select ALL
 map <C-A> ggVG
+
+set nu
+set cindent
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
