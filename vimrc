@@ -33,10 +33,10 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 set nocp
 set runtimepath+=~/.vim/bundle/omnicppcomplete
 
-" set minibufexplorer
-set runtimepath+=~/.vim/bundle/minibufexpl.vim
-let g:miniBufExplMapWindowNavVim=1
-let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplModSelTarget=1
-let g:miniBufExplMoreThanOne=0
+"create tags
+map <F3> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+"create cscope file
+map <F5> :!cscope -Rbq -f scope.out<CR>
+map <F6> :cs add scope.out<CR>
+
