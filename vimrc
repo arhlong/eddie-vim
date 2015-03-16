@@ -34,9 +34,8 @@ set nocp
 set runtimepath+=~/.vim/bundle/omnicppcomplete
 
 "create tags
-map <F3> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+autocmd VimEnter * !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
 
 "create cscope file
-map <F5> :!cscope -Rbq -f scope.out<CR>
-map <F6> :cs add scope.out<CR>
-
+autocmd VimEnter * !cscope -Rbq -f scope.out
+autocmd VimEnter * cs add scope.out
