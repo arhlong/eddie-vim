@@ -13,7 +13,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 " hit enter to cancel searched highlight
-noremap <CR> :nohlsearch<CR>
+"noremap <CR> :nohlsearch<CR>
 
 " select ALL
 map <C-A> ggVG
@@ -27,15 +27,19 @@ set shiftwidth=4
 set runtimepath+=~/.vim/bundle/plugin/settings
 
 "set for cscope quickfix
-set cscopequickfix=s-,c-,d-,i-,t-,e-
+"set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 "set for OmniCppComplete
 set nocp
 set runtimepath+=~/.vim/bundle/omnicppcomplete
 
 "create tags
-autocmd VimEnter * !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
+"autocmd VimEnter * !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
+map <F3> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 "create cscope file
-autocmd VimEnter * !cscope -Rbq -f scope.out
-autocmd VimEnter * cs add scope.out
+"autocmd VimEnter * !cscope -Rbq -f scope.out
+map <F5> :!cscope -Rbq -f scope.out<CR>
+"autocmd VimEnter * cs add scope.out
+map <F6> :cs add scope.out<CR>
+
