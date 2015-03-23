@@ -48,8 +48,8 @@ set ignorecase                        " ignore case when searching
 set smartcase
 set smarttab                          " insert tabs on the start of a line according to
 set expandtab                         " replace <TAB> with spaces
-set softtabstop=2
-set shiftwidth=2
+"set softtabstop=2
+"set shiftwidth=2
 set noexpandtab
 set shortmess=I                       " remove splash wording
 
