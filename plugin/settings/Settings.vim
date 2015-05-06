@@ -67,7 +67,7 @@ scriptencoding utf-8
 
 " ignores
 set wildignore+=*.o,*.obj,*.pyc                " output objects
-set wildignore+=*.d.o,*.d.d                " output objects
+set wildignore+=*.d*,*.d.*,tag*,scope*,core      " other files
 set wildignore+=*.png,*.jpg,*.gif,*.ico        " image format
 set wildignore+=*.swf,*.fla                    " image format
 set wildignore+=*.mp3,*.mp4,*.avi,*.mkv        " media format
