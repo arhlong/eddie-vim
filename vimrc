@@ -32,6 +32,7 @@ set runtimepath+=~/.vim/bundle/plugin/settings
 "set for OmniCppComplete
 set nocp
 set runtimepath+=~/.vim/bundle/omnicppcomplete
+set completeopt-=preview
 
 "create tags
 "autocmd VimEnter * !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
