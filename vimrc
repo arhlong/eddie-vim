@@ -34,6 +34,9 @@ set nocp
 set runtimepath+=~/.vim/bundle/omnicppcomplete
 set completeopt-=preview
 
+"set for clang_complete
+let g:clang_library_path='/usr/local/lib/libclang.so'
+
 "create tags
 "autocmd VimEnter * !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
 map <F3> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
