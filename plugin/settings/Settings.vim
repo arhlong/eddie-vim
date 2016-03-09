@@ -38,7 +38,8 @@ set hlsearch                          " search highlighting
 set incsearch                         " incremental search
 syntax enable
 set t_Co=256
-colorscheme rails_envy
+"colorscheme rails_envy
+colorscheme solarized
 
 set nobackup                          " no *~ backup files
 set noswapfile
