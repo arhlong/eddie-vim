@@ -37,8 +37,8 @@ syntax on                             " syntax highlight
 set hlsearch                          " search highlighting
 set incsearch                         " incremental search
 syntax enable
-set t_Co=256
-"colorscheme rails_envy
+set t_Co=8
+set background=dark
 colorscheme solarized
 
 set nobackup                          " no *~ backup files
