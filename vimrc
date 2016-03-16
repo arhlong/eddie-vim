@@ -47,3 +47,6 @@ map <F5> :!cscope -Rbq -f scope.out<CR>
 "autocmd VimEnter * cs add scope.out
 map <F6> :cs add scope.out<CR>
 
+"set some macros
+"file decription
+let @h="i//filename:author:description:"
