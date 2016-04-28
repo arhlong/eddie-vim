@@ -31,7 +31,7 @@ set runtimepath+=~/.vim/bundle/plugin/settings
 
 "set for OmniCppComplete
 set nocp
-set runtimepath+=~/.vim/bundle/omnicppcomplete
+"set runtimepath+=~/.vim/bundle/omnicppcomplete
 set completeopt-=preview
 
 "set for clang_complete
