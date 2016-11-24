@@ -1,95 +1,64 @@
-My own Vim configurations and plugins which I used.
+This plugin uses clang for accurately completing C and C++ code.
 
-Primary Vim relative settings are in `plugin/settings/Settings.vim` file, and isolate other plugins' settings in `plugin/settings` directory.
+## Installation
 
-It's how my Vim looks now:
+- To build and install in one step, type: `$ make install`
 
-![image](https://github.com/kaochenlong/eddie-vim/raw/master/screenshots/vim-2012-03-27-macvim.png)
+- To build and install in two steps, type:
 
-and <a href="http://blog.eddie.com.tw/2012/03/06/my-vimrc/" target="_blank">Here</a> are some screenshots on the other platforms.
+```
+$ make
+$ vim clang_complete.vmb -c 'so %' -c 'q'
+```
+
+- Alternatively, you can also put the files in `~/.vim/`
+
+You need Vim 7.3 or higher, compiled with python support and ideally, with
+the conceal feature.
+
+## Minimum Configuration
+
+- Set the `clang_library_path` to the directory containing file named
+  libclang.{dll,so,dylib} (for Windows, Unix variants and OS X respectively) or
+  the file itself, example:
+
+```vim
+ " path to directory where library can be found
+ let g:clang_library_path='/usr/lib/llvm-3.8/lib'
+ " or path directly to the library file
+ let g:clang_library_path='/usr/lib64/libclang.so.3.8'
+```
+
+- Compiler options can be configured in a `.clang_complete` file in each project
+  root.  Example of `.clang_complete` file:
+
+```
+-DDEBUG
+-include ../config.h
+-I../common
+-I/usr/include/c++/4.5.3/
+-I/usr/include/c++/4.5.3/x86_64-slackware-linux/
+```
 
 ## Usage
 
-### Installation and Requisites:
+The plugin provides list of matches, after that you pick completion from a
+generic completion menu where <kbd>Ctrl+N</kbd>, <kbd>Ctrl+P</kbd> and alike
+work and wrap around ends of list.
 
-1. BACKUP your `.vim` directory and `.vimrc` first.(IMPORTANT!)
+## License
 
-2. `cd ~` to change directory to your home directory.
+See doc/clang_complete.txt for help and license.
 
-3. copy files to your home directory:
+## Troubleshooting
 
-        git clone git://github.com/kaochenlong/eddie-vim.git
+The first step is to check values of `'omnifunc'` and `'completefunc'` options
+in a C++ buffer where completion doesn't work (the value should be
+`ClangComplete`).  This can be done with the following command:
+`:set omnifunc? completefunc?`
 
-4. cd to `eddie-vim` directory and execute the `update.sh` to get latest version modules:
+Output of `:messages` command after startup could also show something useful in
+case there were problems with plugin initialization.
 
-        cd eddie-vim
-        ./update.sh
-
-5. make a symbolic link `.vim` to `eddie-vim` that you just cloned, or just rename it to `.vim` also be fine:
-
-        ln -s eddie-vim .vim
-
-6. link the vimrc to
-
-        ln -s .vim/vimrc .vimrc
-
-7. if you're still not familiar with the movement in vim by HJKL or yanking and pasting text, I've made a easier version:
-
-        ln -s .vim/easy-vimrc .vimrc
-
-8. if you use GUI version VIM, such as MacVim or GVim, you can also link to `.gvimrc`:
-
-        ln -s eddie-vim/gvimrc .gvimrc
-
-9. if you use Powerline under Ubuntu or something which can not show the correct icons/fonts on the bottom, you can check [this link](https://github.com/scotu/ubuntu-mono-powerline), it looks pretty nice.
-
-10. you may need to install `ack` first if you use `ack.vim`.
-
-### Update:
-
-change directory to `~/.vim` and execute `./update.sh` script, it should do all the updates automatically.
-
-### Features and Key Mappings:
-
-1. Resize splited windows automatically, so that you  get a bigger editing room if you're working with a smaller screen. (stole from [Gary Bernhardt](https://github.com/garybernhardt))
-
-2. Toggle between working mode and presentation mode by `<leader>z`, but only work in GUI version Vim. You can check [here](http://blog.eddie.com.tw/2012/03/14/switch-to-presentation-mode/) to see how it looks like. (stole from [Mike Skalnik](https://github.com/skalnik))
-
-3. some usually used key mappings in normal mode:
-
-    a. `<F1>` to toggle a Calendar window on and off.
-
-    b. `<F2>` to toggle NERDTree on and off.
-
-    c. `<F4>` to toggle Taglist window.
-
-    d. `<F5>` is the script runner, according to it's filetype, it will run Ruby(*.rb) ,Python(*.py) or Javascript(*.js) file(SpiderMonkey is needed), even CoffeeScript(*.coffee, but you may have to install CoffeeScript first). If the filetype is VimScript, `<F5>` will run `:source %` for you.
-
-    e. `<F7>` to switch to previous tab, and `<F8>` to the next tab.
-
-    f. hit `<ctrl>p` will launch a quick window to match keywords from your current working directory, not only file name, but also path name. And `<ctrl>w u` will match from your MRU(Mostly Recent Used) files, which is also frequently used.
-
-    g. hit `<leader>` twice to toggle comment on and off.
-
-    h. `<tab>` and `<shift><tab>` to increase and decrease the syntax identation.
-
-
-    i. `<leader>v` to open `.vimrc` in a new tab.
-
-    j. `<leader>0` to edit or create `README.md` in current working directory.
-
-4. Remove tailing whitespace automatically while saving.
-
-## FAQ
-
-if you can not found `ctags` command, just find your ctags path and replace my settings in `plugin/settings/Ctags.vim` file:
-
-    let Tlist_Ctags_Cmd = '/your/path/to/ctags'
-
-and [Exuberant Ctags](http://ctags.sourceforge.net/) is recommended.
-
-## Contact
-
-Enjoy it, and if there's any question or comment, feel free to let me know :)
-
-Eddie Kao (eddie@digik.com.tw)
+If everything is fine, next step might be to load only clang_complete plugin
+and see if anything changes.

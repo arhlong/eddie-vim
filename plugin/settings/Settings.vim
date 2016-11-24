@@ -110,3 +110,6 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 " quick open vimrc in a new tab
 nmap <leader>v :tabe $MYVIMRC<CR>
 map <leader>0 :topleft 100 :split README.md<CR>
+
+" quck Ack
+nmap <leader>f :Ack<CR>
