@@ -50,3 +50,6 @@ map <F6> :cs add scope.out<CR>
 "set some macros
 "file decription
 let @h="i//filename:author:description:"
+
+" always auto save everythig
+au InsertLeave * write

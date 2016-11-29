@@ -4,6 +4,7 @@ set history=1000                      " keep 1000 lines of command line history
 set undolevels=100
 set ruler                             " show the cursor position all the time
 set autoread                          " auto read when file is changed from outside
+set autowrite                         " auto write when file is changed
 set wrap
 set linebreak
 set nolist
@@ -111,5 +112,8 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 nmap <leader>v :tabe $MYVIMRC<CR>
 map <leader>0 :topleft 100 :split README.md<CR>
 
-" quck Ack
+" quick Ack
 nmap <leader>f :Ack<CR>
+
+" save
+nmap <leader>s :update<CR>
