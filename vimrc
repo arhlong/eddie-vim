@@ -53,3 +53,4 @@ let @h="i//filename:author:description:"
 
 " always auto save everythig
 au InsertLeave * write
+au VimLeave * write
