@@ -54,3 +54,6 @@ let @h="i//filename:author:description:"
 " always auto save everythig
 au InsertLeave * write
 au VimLeave * write
+
+" Vim jump to the last position when reopening a file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

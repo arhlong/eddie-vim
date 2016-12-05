@@ -117,3 +117,6 @@ nmap <leader>f :Ack<CR>
 
 " save
 nmap <leader>s :update<CR>
+
+" nohl
+nmap <leader>n :nohl<CR>
